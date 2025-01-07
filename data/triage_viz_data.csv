@@ -1,0 +1,32 @@
+country,system,system_step,cat_code,category,description
+usa,JumpSTART,1,#ff0200,Immediate,Life-threatening injury; needs medical attention within the next hour
+usa,JumpSTART,2,#feff06,Delayed,"Non-life-threatening injuries; needs medical attention, but treatment can be delayed a few hours"
+usa,JumpSTART,3,#008001,Minor,"Minor injuries; may need medical attention in the next few days (""the walking wounded"")"
+usa,JumpSTART,4,#000000,Deceased or expectant,"Deceased, or injuries so severe that life-saving treatment cannot be provided with the resources available"
+Germany,MTS,1,#ff0200,Category T1,"Acute, life-threatening condition"
+Germany,MTS,2,#feff06,Category T2,Severe injury requiring urgent treatment
+Germany,MTS,3,#008001,Category T3,Minor injury or no injury
+Germany,MTS,4,#000000,Category T4,"Already dead, or expectant"
+Japan,JTAS,1,#ff0200,Category I,Used for viable victims with potentially life-threatening conditions.
+Japan,JTAS,2,#feff06,Category II,"Used for victims with non-life-threatening injuries, but who urgently require treatment."
+Japan,JTAS,3,#008001,Category III,Used for victims with minor injuries that do not require ambulance transport.
+Japan,JTAS,4,#000000,Category 0,"Used for victims who are dead, or whose injuries make survival unlikely."
+Spain,META,1,#ff0200,Red 1st,Compromised airway
+Spain,META,2,#ff0200,Red 2nd,"Not breathing, or abnormally breathing"
+Spain,META,3,#ff0200,Red 3rd,"Asystole, arrhythmia, or hemorrhage"
+Spain,META,4,#feff06,Yellow 1st,Injury requiring urgent care
+Spain,META,5,#feff06,Yellow 2nd,Injury requiring delayed care
+Spain,META,6,#008001,Green,Mildly or non-injured
+Spain,META,7,,Deceased,Dead
+UK,TST,1,#ff0200,P1,"Patients who have catastrophic bleeding, a penetrating injury or those who are unconscious"
+UK,TST,2,#feff06,P2,Patients who are unable to walk but are conscious
+UK,TST,3,#008001,P3,Patients who are able to walk
+UK,TST,4,#808080,Not Breathing ,Patients who are not breathing (this replaces the deceased category)
+UK,MITT,1,#ff0200,P1,Life-threatening injury
+UK,MITT,2,#feff06,P2,Unconscious but breathing
+UK,MITT,3,#008001,P3,Non-life-threatening injury
+UK,MITT,4,#000000,Dead,No signs of life or non-survivable injury
+US Armed Forces,START,1,#ff0200,Immediate,"Airway or breathing issues, hemorrhage"
+US Armed Forces,START,2,#feff06,Delayed,"Shock, Fractures and dislocations, abdominal, spinal, thoracic, or head injuries, uncomplicated major burns"
+US Armed Forces,START,3,#008001,Minimal,"Cuts, bruises, abrasions, small bone fractures, minor burns, strains/sprains, frostbite"
+US Armed Forces,START,4,#000000,Expectant,"Cardiac arrest, massive head or brain trauma, Second or third degree burns over 70% or more of body"

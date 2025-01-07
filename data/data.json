@@ -1,0 +1,250 @@
+[
+  {
+    "country": "usa",
+    "system": "JumpSTART",
+    "system_step": 1,
+    "cat_code": "#ff0200",
+    "category": "Immediate",
+    "description": "Life-threatening injury; needs medical attention within the next hour"
+  },
+  {
+    "country": "usa",
+    "system": "JumpSTART",
+    "system_step": 2,
+    "cat_code": "#feff06",
+    "category": "Delayed",
+    "description": "Non-life-threatening injuries; needs medical attention, but treatment can be delayed a few hours"
+  },
+  {
+    "country": "usa",
+    "system": "JumpSTART",
+    "system_step": 3,
+    "cat_code": "#008001",
+    "category": "Minor",
+    "description": "Minor injuries; may need medical attention in the next few days (\"the walking wounded\")"
+  },
+  {
+    "country": "usa",
+    "system": "JumpSTART",
+    "system_step": 4,
+    "cat_code": "#000000",
+    "category": "Deceased or expectant",
+    "description": "Deceased, or injuries so severe that life-saving treatment cannot be provided with the resources available"
+  },
+  {
+    "country": "Germany",
+    "system": "MTS",
+    "system_step": 1,
+    "cat_code": "#ff0200",
+    "category": "Category T1",
+    "description": "Acute, life-threatening condition"
+  },
+  {
+    "country": "Germany",
+    "system": "MTS",
+    "system_step": 2,
+    "cat_code": "#feff06",
+    "category": "Category T2",
+    "description": "Severe injury requiring urgent treatment"
+  },
+  {
+    "country": "Germany",
+    "system": "MTS",
+    "system_step": 3,
+    "cat_code": "#008001",
+    "category": "Category T3",
+    "description": "Minor injury or no injury"
+  },
+  {
+    "country": "Germany",
+    "system": "MTS",
+    "system_step": 4,
+    "cat_code": "#000000",
+    "category": "Category T4",
+    "description": "Already dead, or expectant"
+  },
+  {
+    "country": "Japan",
+    "system": "JTAS",
+    "system_step": 1,
+    "cat_code": "#ff0200",
+    "category": "Category I",
+    "description": "Used for viable victims with potentially life-threatening conditions."
+  },
+  {
+    "country": "Japan",
+    "system": "JTAS",
+    "system_step": 2,
+    "cat_code": "#feff06",
+    "category": "Category II",
+    "description": "Used for victims with non-life-threatening injuries, but who urgently require treatment."
+  },
+  {
+    "country": "Japan",
+    "system": "JTAS",
+    "system_step": 3,
+    "cat_code": "#008001",
+    "category": "Category III",
+    "description": "Used for victims with minor injuries that do not require ambulance transport."
+  },
+  {
+    "country": "Japan",
+    "system": "JTAS",
+    "system_step": 4,
+    "cat_code": "#000000",
+    "category": "Category 0",
+    "description": "Used for victims who are dead, or whose injuries make survival unlikely."
+  },
+  {
+    "country": "Spain",
+    "system": "META",
+    "system_step": 1,
+    "cat_code": "#ff0200",
+    "category": "Red 1st",
+    "description": "Compromised airway"
+  },
+  {
+    "country": "Spain",
+    "system": "META",
+    "system_step": 2,
+    "cat_code": "#ff0200",
+    "category": "Red 2nd",
+    "description": "Not breathing, or abnormally breathing"
+  },
+  {
+    "country": "Spain",
+    "system": "META",
+    "system_step": 3,
+    "cat_code": "#ff0200",
+    "category": "Red 3rd",
+    "description": "Asystole, arrhythmia, or hemorrhage"
+  },
+  {
+    "country": "Spain",
+    "system": "META",
+    "system_step": 4,
+    "cat_code": "#feff06",
+    "category": "Yellow 1st",
+    "description": "Injury requiring urgent care"
+  },
+  {
+    "country": "Spain",
+    "system": "META",
+    "system_step": 5,
+    "cat_code": "#feff06",
+    "category": "Yellow 2nd",
+    "description": "Injury requiring delayed care"
+  },
+  {
+    "country": "Spain",
+    "system": "META",
+    "system_step": 6,
+    "cat_code": "#008001",
+    "category": "Green",
+    "description": "Mildly or non-injured"
+  },
+  {
+    "country": "Spain",
+    "system": "META",
+    "system_step": 7,
+    "cat_code": "",
+    "category": "Deceased",
+    "description": "Dead"
+  },
+  {
+    "country": "UK",
+    "system": "TST",
+    "system_step": 1,
+    "cat_code": "#ff0200",
+    "category": "P1",
+    "description": "Patients who have catastrophic bleeding, a penetrating injury or those who are unconscious"
+  },
+  {
+    "country": "UK",
+    "system": "TST",
+    "system_step": 2,
+    "cat_code": "#feff06",
+    "category": "P2",
+    "description": "Patients who are unable to walk but are conscious"
+  },
+  {
+    "country": "UK",
+    "system": "TST",
+    "system_step": 3,
+    "cat_code": "#008001",
+    "category": "P3",
+    "description": "Patients who are able to walk"
+  },
+  {
+    "country": "UK",
+    "system": "TST",
+    "system_step": 4,
+    "cat_code": "#808080",
+    "category": "Not Breathing",
+    "description": "Patients who are not breathing (this replaces the deceased category)"
+  },
+  {
+    "country": "UK",
+    "system": "MITT",
+    "system_step": 1,
+    "cat_code": "#ff0200",
+    "category": "P1",
+    "description": "Life-threatening injury"
+  },
+  {
+    "country": "UK",
+    "system": "MITT",
+    "system_step": 2,
+    "cat_code": "#feff06",
+    "category": "P2",
+    "description": "Unconscious but breathing"
+  },
+  {
+    "country": "UK",
+    "system": "MITT",
+    "system_step": 3,
+    "cat_code": "#008001",
+    "category": "P3",
+    "description": "Non-life-threatening injury"
+  },
+  {
+    "country": "UK",
+    "system": "MITT",
+    "system_step": 4,
+    "cat_code": "#000000",
+    "category": "Dead",
+    "description": "No signs of life or non-survivable injury"
+  },
+  {
+    "country": "US Armed Forces",
+    "system": "START",
+    "system_step": 1,
+    "cat_code": "#ff0200",
+    "category": "Immediate",
+    "description": "Airway or breathing issues, hemorrhage"
+  },
+  {
+    "country": "US Armed Forces",
+    "system": "START",
+    "system_step": 2,
+    "cat_code": "#feff06",
+    "category": "Delayed",
+    "description": "Shock, Fractures and dislocations, abdominal, spinal, thoracic, or head injuries, uncomplicated major burns"
+  },
+  {
+    "country": "US Armed Forces",
+    "system": "START",
+    "system_step": 3,
+    "cat_code": "#008001",
+    "category": "Minimal",
+    "description": "Cuts, bruises, abrasions, small bone fractures, minor burns, strains/sprains, frostbite"
+  },
+  {
+    "country": "US Armed Forces",
+    "system": "START",
+    "system_step": 4,
+    "cat_code": "#000000",
+    "category": "Expectant",
+    "description": "Cardiac arrest, massive head or brain trauma, Second or third degree burns over 70% or more of body"
+  }
+]
