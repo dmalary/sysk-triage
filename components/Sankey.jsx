@@ -5,11 +5,18 @@ import { sankey, sankeyCenter, sankeyLinkHorizontal } from "d3-sankey";
 
 const marginY = 25;
 const marginX = 5;
-const colors = ['#ff0200','#feff06','#008001','#000000','#808080',]
+const colors = ['#ff0200','#feff06','#008001','#000000','#808080', ""]
 
 const Sankey = ({width, height, data}) => {
-  const allGroups = [...new Set(data.nodes.map((d) => d.category))].sort();
+  const allGroups = [...new Set(data.nodes.map((d) => d.name))].sort();
+  // const allGroups = [...new Set(data.nodes.map((d) => d.category || d.cat_code))];
   const colorScale = d3.scaleOrdinal().domain(allGroups).range(colors);
+
+  console.log('data.nodes', data.nodes)
+  // console.log('allGroups:', allGroups);
+  // allGroups.forEach(group => {
+  //   console.log(`Category: ${group}, Color: ${colorScale(group)}`);
+  // });
 
   const sankeyGenerator = sankey()  
     .nodeWidth(26)
@@ -26,6 +33,16 @@ const Sankey = ({width, height, data}) => {
   // console.log('nodes', nodes)
 
   const allNodes = nodes.map((node) => {
+
+    let fillColor = "#000000";
+    // console.log('node', node)
+
+    if (node.name.includes("cat_code")) {
+      const catCode = node.name.split(" ")[0]; 
+      // fillColor = colorScale(catCode); 
+      fillColor = colorScale(catCode) || "#000000";
+    }
+
     return (
       <g key={node.index}>
         <rect
@@ -34,7 +51,7 @@ const Sankey = ({width, height, data}) => {
           x={node.x0}
           y={node.y0}
           stroke={"black"}
-          fill="#a53253"
+          fill={fillColor}
           fillOpacity={0.8}
           rx={0.9}
         />
@@ -52,7 +69,7 @@ const Sankey = ({width, height, data}) => {
       <path
         key={i}
         d={path}
-        stroke={colorScale(link.source.category)}
+        stroke={colorScale(link.source.name)}
         fill="none"
         strokeOpacity={0.3}
         strokeWidth={link.width}
@@ -69,7 +86,8 @@ const Sankey = ({width, height, data}) => {
         dy="0.35rem"
         textAnchor={node.x0 < width / 2 ? "start" : "end"}
         fontSize={12}
-        fill='#ffffff'
+        // fill='#ffffff'
+        fill='#000000'
       >
         {node.name}
       </text>
