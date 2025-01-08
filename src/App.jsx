@@ -23,7 +23,9 @@ function App() {
   };
 
   data.forEach((entry) => {
-    const catCodeIndex = addNode(entry.cat_code);
+    const catCodeNAme = `${entry.cat_code_color} (${entry.cat_code})`;
+    const catCodeIndex = addNode(catCodeNAme);
+    // const catCodeIndex = addNode(entry.cat_code);
     const systemStepName = `Step ${entry.system_step} (${entry.category})`; 
     const systemStepIndex = addNode(systemStepName);
     const systemCountry = `${entry.system} (${entry.country})`
