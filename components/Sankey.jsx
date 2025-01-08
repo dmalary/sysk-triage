@@ -60,31 +60,28 @@ const Sankey = ({width, height, data}) => {
     );
   });
 
-  // const allLabels = nodes.map((node, i) => {
-  //   return (
-  //     <text
-  //       key={i}
-  //       x={node.x0 < width / 2 ? node.x1 + 6 : node.x0 - 6}
-  //       y={(node.y1 + node.y0) / 2}
-  //       dy="0.35rem"
-  //       textAnchor={node.x0 < width / 2 ? "start" : "end"}
-  //       fontSize={12}
-  //     >
-  //       {node.name}
-  //     </text>
-  //   );
-  // });
-
-  data.links.forEach((link, i) => {
-    console.log(`Link ${i}:`, link);
+  const allLabels = nodes.map((node, i) => {
+    return (
+      <text
+        key={i}
+        x={node.x0 < width / 2 ? node.x1 + 6 : node.x0 - 6}
+        y={(node.y1 + node.y0) / 2}
+        dy="0.35rem"
+        textAnchor={node.x0 < width / 2 ? "start" : "end"}
+        fontSize={12}
+        color='#ffffff'
+      >
+        {node.name}
+      </text>
+    );
   });
 
   return (
     <div>
       <svg width={width} height={height}>
         {allNodes}
-        {/* {allLinks} */}
-        {/* {allLabels} */}
+        {allLinks}
+        {allLabels}
       </svg>
     </div>
   )
