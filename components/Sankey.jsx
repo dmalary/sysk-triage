@@ -69,7 +69,7 @@ const Sankey = ({width, height, data}) => {
         dy="0.35rem"
         textAnchor={node.x0 < width / 2 ? "start" : "end"}
         fontSize={12}
-        color='#ffffff'
+        fill='#ffffff'
       >
         {node.name}
       </text>
