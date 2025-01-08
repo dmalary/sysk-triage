@@ -1,26 +1,24 @@
 /* eslint-disable react/prop-types */
 
-import * as d3 from 'd3';
+// import * as d3 from 'd3';
 import { sankey, sankeyCenter, sankeyLinkHorizontal } from "d3-sankey";
 
 const marginY = 25;
 const marginX = 5;
-const colors = ['#ff0200','#feff06','#008001','#000000','#808080', ""]
+
+const colors = {
+  red: '#ff0200', 
+  yellow: '#feff06',
+  green: '#008001',
+  black: '#000000',
+  grey: '#808080', 
+}
 
 const Sankey = ({width, height, data}) => {
-  const allGroups = [...new Set(data.nodes.map((d) => d.name))].sort();
-  // const allGroups = [...new Set(data.nodes.map((d) => d.category || d.cat_code))];
-  const colorScale = d3.scaleOrdinal().domain(allGroups).range(colors);
-
-  console.log('data.nodes', data.nodes)
-  // console.log('allGroups:', allGroups);
-  // allGroups.forEach(group => {
-  //   console.log(`Category: ${group}, Color: ${colorScale(group)}`);
-  // });
 
   const sankeyGenerator = sankey()  
-    .nodeWidth(26)
-    .nodePadding(12)
+    .nodeWidth(20)
+    .nodePadding(10)
     .extent([
       [marginX, marginY],
       [width - marginX, height - marginY],
@@ -29,19 +27,27 @@ const Sankey = ({width, height, data}) => {
     .nodeAlign(sankeyCenter);  
 
   const { nodes, links } = sankeyGenerator(data);
-
   // console.log('nodes', nodes)
+  // console.log('links', links)
+
+  const getNodeColor = (node) => {
+    if (node.layer === 0 || node.layer === 1) {
+      // Match `cat_code` to a color in the colors object
+      if (node.name.includes("red")) return colors.red;
+      if (node.name.includes("yellow")) return colors.yellow;
+      if (node.name.includes("green")) return colors.green;
+      if (node.name.includes("black")) return colors.black;
+      if (node.name.includes("grey")) return colors.grey;
+    } else if (node.layer === 2) {
+      // Layer 3 nodes are always black
+      return colors.black;
+    }
+    return "#cccccc"; // Default color
+  };
 
   const allNodes = nodes.map((node) => {
 
-    let fillColor = "#000000";
-    // console.log('node', node)
-
-    if (node.name.includes("cat_code")) {
-      const catCode = node.name.split(" ")[0]; 
-      // fillColor = colorScale(catCode); 
-      fillColor = colorScale(catCode) || "#000000";
-    }
+    const fillColor = getNodeColor(node);
 
     return (
       <g key={node.index}>
@@ -53,25 +59,26 @@ const Sankey = ({width, height, data}) => {
           stroke={"black"}
           fill={fillColor}
           fillOpacity={0.8}
-          rx={0.9}
+          rx={2}
         />
       </g>
     );
   });
 
-  // console.log('links', links)
-
   const allLinks = links.map((link, i) => {
     const linkGenerator = sankeyLinkHorizontal();
     const path = linkGenerator(link);
+
+    const sourceNode = nodes[link.source.index];
+    const linkColor = getNodeColor(sourceNode); // Use the same color as the source node
 
     return (
       <path
         key={i}
         d={path}
-        stroke={colorScale(link.source.name)}
+        stroke={linkColor}
         fill="none"
-        strokeOpacity={0.3}
+        strokeOpacity={0.4}
         strokeWidth={link.width}
       />
     );
@@ -86,7 +93,6 @@ const Sankey = ({width, height, data}) => {
         dy="0.35rem"
         textAnchor={node.x0 < width / 2 ? "start" : "end"}
         fontSize={12}
-        // fill='#ffffff'
         fill='#000000'
       >
         {node.name}
