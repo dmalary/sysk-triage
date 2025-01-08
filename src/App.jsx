@@ -24,7 +24,6 @@ function App() {
 
   // Normalization function for system_step
   const normalizeSystemStep = (step) => {
-    // Example: Map any system_step value into one of 7 steps
     const stepMapping = {
       "1": "Step 1",
       "2": "Step 2",
@@ -35,30 +34,9 @@ function App() {
       "7": "Step 7",
     };
 
-    // Ensure step is a string and map it; default to "Step 7" if not found
     return stepMapping[step.toString()] || "Step 7";
   };
 
-  // V1
-  // data.forEach((entry) => {
-  //   // const catCodeNAme = `${entry.cat_code_color} (${entry.cat_code})`;
-  //   // const catCodeIndex = addNode(catCodeNAme);
-  //   const catCodeIndex = addNode(entry.cat_code);
-
-  //   const systemStepName = `Step ${entry.system_step} (${entry.category})`; 
-  //   const systemStepIndex = addNode(systemStepName);
-  //   // const systemStepIndex = addNode(entry.system_step);
-
-  //   const systemCountry = `${entry.system} (${entry.country})`
-  //   // const systemIndex = addNode(entry.system);
-  //   const systemIndex = addNode(systemCountry);
-  
-  //   // Create links
-  //   links.push({ source: catCodeIndex, target: systemStepIndex, value: 1 });
-  //   links.push({ source: systemStepIndex, target: systemIndex, value: 1 });
-  // });
-
-  // V2
   data.forEach((entry) => {
     // const catCodeName = `${entry.cat_code_color} (${entry.cat_code})`;
     // const catCodeIndex = addNode(catCodeName);
@@ -71,17 +49,16 @@ function App() {
     const systemCountry = `${entry.system} (${entry.country})`;
     const systemIndex = addNode(systemCountry);
 
-    // Create links
     links.push({ source: catCodeIndex, target: systemStepIndex, value: 1 });
     links.push({ source: systemStepIndex, target: systemIndex, value: 1 });
   });
 
   const chartData = { nodes, links };
-  console.log('chartData', chartData)
+  // console.log('chartData', chartData)
 
   return (
     <>
-      <Sankey width={1000} height={650} data={chartData}/>
+      <Sankey width={800} height={650} data={chartData}/>
     </>
   )
 }
