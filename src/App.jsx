@@ -62,11 +62,10 @@ function App() {
   data.forEach((entry) => {
     // const catCodeName = `${entry.cat_code_color} (${entry.cat_code})`;
     // const catCodeIndex = addNode(catCodeName);
-      const catCodeIndex = addNode(entry.cat_code);
+    // const catCodeIndex = addNode(entry.cat_code);
+    const catCodeIndex = addNode(entry.cat_code_color);
 
-    const normalizedStep = normalizeSystemStep(entry.system_step); // Normalize step
-    // const systemStepName = `${normalizedStep} (${entry.category})`;
-    // const systemStepIndex = addNode(systemStepName);
+    const normalizedStep = normalizeSystemStep(entry.system_step);
     const systemStepIndex = addNode(normalizedStep);
 
     const systemCountry = `${entry.system} (${entry.country})`;
@@ -78,11 +77,11 @@ function App() {
   });
 
   const chartData = { nodes, links };
-  console.log(chartData);
+  console.log('chartData', chartData)
 
   return (
     <>
-      <Sankey width={1000} height={700} data={chartData}/>
+      <Sankey width={1000} height={650} data={chartData}/>
     </>
   )
 }
