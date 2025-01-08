@@ -16,7 +16,8 @@ function App() {
     if (!nodeMap.has(name)) {
       const index = nodes.length;
       nodeMap.set(name, index);
-      nodes.push({ node: index, name });
+      // nodes.push({ node: index, name });
+      nodes.push({ id: name, name });
     }
     return nodeMap.get(name);
   };
@@ -25,7 +26,7 @@ function App() {
     const catCodeIndex = addNode(entry.cat_code);
     const systemStepName = `Step ${entry.system_step} (${entry.category})`; 
     const systemStepIndex = addNode(systemStepName);
-    const systemCountry = `${entry.system} - ${entry.country}`
+    const systemCountry = `${entry.system} (${entry.country})`
     // const systemIndex = addNode(entry.system);
     const systemIndex = addNode(systemCountry);
   
@@ -34,12 +35,12 @@ function App() {
     links.push({ source: systemStepIndex, target: systemIndex, value: 1 });
   });
 
-  const result = { nodes, links };
-  console.log(result);
+  const chartData = { nodes, links };
+  console.log(chartData);
 
   return (
     <>
-      <Sankey />
+      <Sankey width={800} height={600} data={chartData}/>
     </>
   )
 }
