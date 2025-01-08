@@ -42,7 +42,7 @@ function App() {
 
   return (
     <>
-      <Sankey width={800} height={600} data={chartData}/>
+      <Sankey width={1000} height={700} data={chartData}/>
     </>
   )
 }
