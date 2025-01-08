@@ -25,16 +25,16 @@ function App() {
   // Normalization function for system_step
   const normalizeSystemStep = (step) => {
     const stepMapping = {
-      "1": "Step 1",
-      "2": "Step 2",
-      "3": "Step 3",
-      "4": "Step 4",
-      "5": "Step 5",
-      "6": "Step 6",
-      "7": "Step 7",
+      "1": "Category 1",
+      "2": "Category 2",
+      "3": "Category 3",
+      "4": "Category 4",
+      "5": "Category 5",
+      "6": "Category 6",
+      "7": "Category 7",
     };
 
-    return stepMapping[step.toString()] || "Step 7";
+    return stepMapping[step.toString()] || "Category 7";
   };
 
   data.forEach((entry) => {
@@ -49,9 +49,13 @@ function App() {
     const systemCountry = `${entry.system} (${entry.country})`;
     const systemIndex = addNode(systemCountry);
 
-    links.push({ source: catCodeIndex, target: systemStepIndex, value: 1 });
-    links.push({ source: systemStepIndex, target: systemIndex, value: 1 });
+    // links.push({ source: catCodeIndex, target: systemStepIndex, value: 1 });
+    // links.push({ source: systemStepIndex, target: systemIndex, value: 1 });
+
+    links.push({ source: systemStepIndex, target: catCodeIndex, value: 1 });
+    links.push({ source: catCodeIndex, target: systemIndex, value: 1 });
   });
+  console.log('links', links)
 
   const chartData = { nodes, links };
   // console.log('chartData', chartData)
